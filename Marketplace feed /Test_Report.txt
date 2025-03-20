@@ -1,0 +1,16 @@
+=== Cucumber Test Report ===
+
+Scenario: Navigate from Dashboard to Marketplace Feed
+    Given I am on the Dashboard Page [passed]
+    Then I should see all 5 menus displayed [passed]
+    Then I should see the Marketplace button displayed [passed]
+    When I click on the Marketplace button [passed]
+    Then I should be redirected to the Marketplace Page [passed]
+    Then I should see the Search bar and Filter button [passed]
+    Then I should see the Notification button [passed]
+    Then I should see a list of products displayed [passed]
+    When I Enter product name to Search bar 'Corn - raw' [passed]
+Status: passed
+Execution Time: 40.18 seconds
+--------------------------------------------------
+

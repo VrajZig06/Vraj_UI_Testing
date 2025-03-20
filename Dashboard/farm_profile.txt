@@ -1,0 +1,342 @@
+from behave import given, when, then
+from appium.webdriver.common.appiumby import AppiumBy
+from driver import get_driver
+import time
+
+# Initialize driver
+def get_driver_instance(context):
+    if not hasattr(context, 'driver'):
+        context.driver = get_driver()
+    return context.driver
+
+@given('I click on Greener Herd app')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@content-desc="Greener Herd"]')
+    element.click()
+    time.sleep(10)
+
+@then('I see the splash screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.widget.ImageView')
+    time.sleep(5)
+
+@then('I see the Welcome popup')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Welcome to\nGreener Herd')
+    time.sleep(5)
+
+@when('I click Continue with Email')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.ImageView[@content-desc="Continue with Email"]')
+    element.click()
+    time.sleep(5)
+
+@given('I am on the login with email screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Login"]')
+    time.sleep(5)
+
+@when('I click Create Account')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Create Account"]')
+    element.click()
+    time.sleep(5)
+
+@then('I should be on the registration screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Registration')
+    time.sleep(5)
+
+@given('I am on the registration screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Registration')
+    time.sleep(5)
+
+@when('I enter a valid email address "{email}"')
+def step_impl(context, email):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="email address"]')
+    element.click()
+    element.send_keys(email)
+    time.sleep(5)
+
+@when('I enter a valid password "{password}"')
+def step_impl(context, password):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="password"]')
+    element.click()
+    element.send_keys(password)
+    time.sleep(5)
+
+@when('I enter a valid confirm password "{confirm_password}"')
+def step_impl(context, confirm_password):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="confirm password"]')
+    element.click()
+    element.send_keys(confirm_password)
+    time.sleep(5)
+
+@when('I click Register button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'on_tap\nRegister')
+    element.click()
+    time.sleep(5)
+
+@then('I should be on the OTP verification screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="OTP Verification"]')
+    time.sleep(5)
+
+@when('I enter OTP "{otp}"')
+def step_impl(context, otp):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText')
+    element.click()
+    element.send_keys(otp)
+    time.sleep(5)
+
+@when('I click Verify and Continue button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Verify and Continue"]')
+    element.click()
+    time.sleep(5)
+
+@then('I should be on the user profile screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="User Profile"]')
+    time.sleep(5)
+
+@when('I enter First Name "{first_name}"')
+def step_impl(context, first_name):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="first name"]')
+    element.clear()
+    element.send_keys(first_name)
+    time.sleep(5)
+
+@when('I enter Last Name "{last_name}"')
+def step_impl(context, last_name):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="last name"]')
+    element.clear()
+    element.send_keys(last_name)
+    time.sleep(5)
+
+@when('I click country code change')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Country Code"]')
+    element.click()
+    time.sleep(5)
+
+@when('I search for "{country}"')
+def step_impl(context, country):
+    driver = get_driver_instance(context)
+    search_element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@content-desc="Search Country"]')
+    search_element.send_keys(country)
+    time.sleep(5)
+
+@when('I select country "{country_code}"')
+def step_impl(context, country_code):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, f'//android.view.View[@content-desc="{country_code}"]')
+    element.click()
+    time.sleep(5)
+
+@when('I enter phone number "{phone_number}"')
+def step_impl(context, phone_number):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="phone number"]')
+    element.clear()
+    element.send_keys(phone_number)
+    time.sleep(5)
+
+@when('I select preferred language "{language}"')
+def step_impl(context, language):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, f'//android.widget.Button[@content-desc="{language}"]')
+    element.click()
+    time.sleep(5)
+
+@when('I click next button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    element = driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Next"]')
+    element.click()
+    time.sleep(5)
+
+@then('I should be on the farm profile screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Farm Profile"]')
+    time.sleep(5)
+
+@then('I am on the farm profile screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Farm Profile"]')
+    time.sleep(5)
+
+@when('I enter Business Name "{business_name}"')
+def step_impl(context, business_name):
+    driver = get_driver_instance(context)
+    business_name_field = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="business name"]')
+    business_name_field.send_keys(business_name)
+    time.sleep(5)
+
+@when('I enter Address line one "{address_line_one}"')
+def step_impl(context, address_line_one):
+    driver = get_driver_instance(context)
+    address_line_one_field = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="address line 1"]')
+    address_line_one_field.send_keys(address_line_one)
+    time.sleep(5)
+
+@when('I enter Address line two "{address_line_two}"')
+def step_impl(context, address_line_two):
+    driver = get_driver_instance(context)
+    address_line_two_field = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="address line 2"]')
+    address_line_two_field.send_keys(address_line_two)
+    time.sleep(5)
+
+@when('I enter Town "{town}"')
+def step_impl(context, town):
+    driver = get_driver_instance(context)
+    town_field = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="town"]')
+    town_field.send_keys(town)
+    time.sleep(5)
+
+@when('I select Country the "{country}"')
+def step_impl(context, country):
+    driver = get_driver_instance(context)
+    country_dropdown = driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="country"]')
+    country_dropdown.click()
+    country_option = driver.find_element(AppiumBy.XPATH, f'//android.widget.Button[@content-desc="{country}"]')
+    country_option.click()
+    time.sleep(5)
+
+@when('I select Region "{region}"')
+def step_impl(context, region):
+    driver = get_driver_instance(context)
+    region_dropdown = driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="region"]')
+    region_dropdown.click()
+    region_option = driver.find_element(AppiumBy.XPATH, f'//android.widget.Button[@content-desc="{region}"]')
+    region_option.click()
+    time.sleep(5)
+
+@then('I am on the farm details screen')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="Farm Detail"]')
+    time.sleep(5)
+
+@when('I set farm location')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    location = driver.find_element(AppiumBy.XPATH, '//android.view.View[@resource-id="farm location"]')
+    location.click()
+    time.sleep(5)
+
+@when('I confirm location')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    confirm_button = driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="on_tap Confirm Location"]')
+    confirm_button.click()
+    time.sleep(5)
+
+@when('I select animal species "{species}"')
+def step_impl(context, species):
+    element = context.driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="animal species"]')
+    element.click()
+    element = context.driver.find_element(AppiumBy.XPATH, f'//android.widget.Button[@content-desc="{species}"]')
+    element.click()
+    time.sleep(5)
+
+@when('I enter number of cattle "{number}"')
+def step_impl(context, number):
+    element = context.driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="Enter number of Cattle "]')
+    element.send_keys(number)
+    time.sleep(5)
+
+@when('I select production focus "{focus}"')
+def step_impl(context, focus):
+    element = context.driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="cattle production focus"]')
+    element.click()
+    element = context.driver.find_element(AppiumBy.XPATH, f'//android.widget.Button[@content-desc="{focus}"]')
+    element.click()
+    time.sleep(5)
+
+@when('I select housing "{housing}"')
+def step_impl(context, housing):
+    element = context.driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="cattle housing"]')
+    element.click()
+    element = context.driver.find_element(AppiumBy.XPATH, f'//android.widget.Button[@content-desc="{housing}"]')
+    element.click()
+    time.sleep(5)
+
+@then('I should be on the view farm profile screen')
+def step_impl(context):
+    element = context.driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="View Farm Profile"]')
+    assert element is not None    
+    time.sleep(5)
+
+@when('I verify the farm details')
+def step_impl(context):
+    element = context.driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="cattle"]')
+    assert element is not None
+    time.sleep(5)
+
+@when('I click Submit Button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="on_tap Submit"]').click()
+    time.sleep(5)
+
+@then('I should see a success message "{message}"')
+def step_impl(context, message):
+    driver = get_driver_instance(context)
+    success_message = driver.find_element(AppiumBy.ACCESSIBILITY_ID, message)
+    assert success_message is not None, f"{message} not found!"
+
+# Negative Scenarios for Farm Profile
+@then('I should see an error message "{message}"')
+def step_impl(context, message):
+    driver = get_driver_instance(context)
+    error_message = driver.find_element(AppiumBy.ACCESSIBILITY_ID, message)
+    assert error_message is not None, f"{message} not found!"
+
+@when('I enter the phone number "{phone}"')
+def step_impl(context, phone):
+    driver = get_driver_instance(context)
+    phone_field = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@resource-id="phone number"]')
+    phone_field.clear()
+    phone_field.send_keys(phone)
+    time.sleep(5)
+
+@when('I click the next button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    next_button = driver.find_element(AppiumBy.XPATH, '//android.view.View[@content-desc="on_tap Next"]')
+    next_button.click()
+    time.sleep(5)
+
+@then('I should see an error for missing location confirmation')
+def step_impl(context):
+    error_message = context.driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Please confirm the location")
+    assert error_message is not None, "Missing location confirmation error message not found!"
+
+@then('I should see an error for incomplete profile')
+def step_impl(context):
+    error_message = context.driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Farm profile is incomplete")
+    assert error_message is not None, "Incomplete profile error message not found!"

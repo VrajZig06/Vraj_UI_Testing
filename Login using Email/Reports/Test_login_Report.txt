@@ -1,0 +1,21 @@
+=== Cucumber Test Report ===
+
+Scenario: Launch the app and navigate to email registration
+    Given I click on Greener Herd app [passed]
+    Then I see the splash screen [passed]
+    And I see the Welcome popup [passed]
+    When I click Continue with Email [passed]
+Status: passed
+Execution Time: 18.82 seconds
+--------------------------------------------------
+
+Scenario: Navigate to Login Screen
+    Given I am on the login with email screen [passed]
+    When I enter a valid email address naitikv@zignuts.com [passed]
+    And I enter a valid password N12345678# [passed]
+    And I click on Login [passed]
+    And I show Dashboard [passed]
+Status: passed
+Execution Time: 21.12 seconds
+--------------------------------------------------
+

@@ -1,0 +1,20 @@
+=== Cucumber Test Report ===
+
+Scenario: Verify Dashboard Page Elements
+    Given I am on the Farm Dashboard page [passed]
+    When I see the group of animals displayed in different species [passed]
+    Then I should see the Animal Tag Number search bar [passed]
+    Then I should see "My Herd" section [passed]
+    Then I should see the status overview section [passed]
+    Then I should see the AVG FCR (Average Feed Conversion Ratio) displayed [passed]
+    Then I should see the Average Daily Gain section [passed]
+    Then I should see the Average Calf Weight section [passed]
+    Then I should see the Emission overview section [passed]
+    Then I should see the Feed overview section [passed]
+    Then I should see the Weather Forecast section [passed]
+    Then I should also see the Notification button [passed]
+    Then I Should also see then Dashboard Button [passed]
+Status: passed
+Execution Time: 56.79 seconds
+--------------------------------------------------
+
