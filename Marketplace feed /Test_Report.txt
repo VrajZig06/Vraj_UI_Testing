@@ -6,11 +6,62 @@ Scenario: Navigate from Dashboard to Marketplace Feed
     Then I should see the Marketplace button displayed [passed]
     When I click on the Marketplace button [passed]
     Then I should be redirected to the Marketplace Page [passed]
+Status: passed
+Execution Time: 18.31 seconds
+--------------------------------------------------
+
+Scenario: Apply a filter to products
+    Given I am on the "Marketplace Feeds" activity [passed]
+    When I should see the "Filter" button [passed]
+    Then I click on the "Filter" button [passed]
+    Then I should see the filter pop-up screen [passed]
+    When I select "Product Type" as "fodder" and "Animal Species" as "Cattle" [passed]
+    Then I should see the "Apply Filter" button [passed]
+    When I click on the "Apply Filter" button [passed]
+    Then I should see a first product named as Alfa Alfa [passed]
+Status: passed
+Execution Time: 41.55 seconds
+--------------------------------------------------
+
+Scenario: Removing all filters
+    Given I am on the "Marketplace Feeds" activity [passed]
+    When I should see the "Filter" button [passed]
+    Then I click on the "Filter" button [passed]
+    Then I should see the filter pop-up screen [passed]
+    When I should see the "Remove Filters" button [passed]
+    Then I click on the "Remove Filters" button [passed]
+    Then I should see the first item as "500kg beef" [passed]
+Status: passed
+Execution Time: 31.06 seconds
+--------------------------------------------------
+
+Scenario: When user clicks on a particular product
+    Given I am on the "Marketplace Feeds" activity [passed]
+    When I should see the first product in the product list [passed]
+    Then I click on the first product [passed]
+    Then I will be redirected to the "View Product Detail" page [passed]
+    When I see the detail of "500 kg Beef Calf Mix" [passed]
+    Then I should see the price of that product [passed]
+    When I should see the "Nutritional Composition" section [passed]
+    Then I should see the following items in the nutritional section: [passed]
+    When I should see the "Supplier Details" section [passed]
+    Then I should see the following items in the supplier section: [passed]
+    When I should see the "Feeding Instructions" section [passed]
+    Then I should see the back button on the top left side [passed]
+    When I click on the back button [passed]
+    Then I should be redirected back to the "Marketplace Feeds" activity [passed]
+Status: passed
+Execution Time: 60.97 seconds
+--------------------------------------------------
+
+Scenario: Search product
+    Given I am on the "Marketplace Feeds" activity [passed]
     Then I should see the Search bar and Filter button [passed]
     Then I should see the Notification button [passed]
     Then I should see a list of products displayed [passed]
     When I Enter product name to Search bar 'Corn - raw' [passed]
+    Then I should see the Corn - raw Product [passed]
 Status: passed
-Execution Time: 40.18 seconds
+Execution Time: 26.72 seconds
 --------------------------------------------------
 

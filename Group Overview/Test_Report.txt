@@ -1,0 +1,16 @@
+=== Cucumber Test Report ===
+
+Scenario: Group Overview
+    Given I am on the Dashboard page [passed]
+    Then I should see the "Group Overview" button [passed]
+    When I click on the "Group Overview" button [passed]
+    Then I should be redirected to the "Group Overview" page [passed]
+    And I should be able to view the group list and clickable [passed]
+    When I click on the first group in the group list : Group Id :- "hello ‪(1)" [passed]
+    Then I should be redirected to the "Group Details" page and Verify Same Group Detail : Group Id :- "hello  ‪(1)" [passed]
+    Then I should see the following elements [passed]
+    And I should see the "Notification" button [passed]
+Status: passed
+Execution Time: 13.97 seconds
+--------------------------------------------------
+

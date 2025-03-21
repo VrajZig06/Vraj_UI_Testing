@@ -6,7 +6,7 @@ Scenario: Launch the App and Navigate to User Registartion using Phone
     And I see the Welcome popup [passed]
     When I Click on Continue with Email [passed]
 Status: passed
-Execution Time: 20.55 seconds
+Execution Time: 20.17 seconds
 --------------------------------------------------
 
 Scenario: Login to App using email
@@ -16,6 +16,6 @@ Scenario: Login to App using email
     Then I click on Login Button [passed]
     Then I am at dashboard Page [passed]
 Status: passed
-Execution Time: 47.44 seconds
+Execution Time: 42.84 seconds
 --------------------------------------------------
 

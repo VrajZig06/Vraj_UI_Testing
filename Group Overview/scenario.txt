@@ -1,0 +1,119 @@
+Feature: Farm Profile
+
+  # Positive Scenario for Farm Profile
+  Scenario: Launch the app and navigate to email registration
+    Given I click on Greener Herd app
+    Then I see the splash screen
+    And I see the Welcome popup
+    When I click Continue with Email
+
+  Scenario: Navigate to registration screen
+    Given I am on the login with email screen
+    When I click Create Account
+    Then I should be on the registration screen
+
+  Scenario: Complete registration form
+    Given I am on the registration screen
+    When I enter a valid email address "p@yopmail.com"
+    And I enter a valid password "naitikv@zignuts.com"
+    And I enter a valid confirm password "N12345678#"
+    And I click Register button
+    Then I should be on the OTP verification screen
+
+  Scenario: Verify OTP and navigate to user profile
+    Given I am on the OTP verification screen
+    When I enter OTP "1234"
+    And I click Verify and Continue button
+    Then I should be on the user profile screen
+
+  Scenario: Complete user profile
+    Given I am on the user profile screen
+    When I enter First Name "Jonny"
+    And I enter Last Name "Doe"
+    When I click country code change
+    And I search for "India"
+    And I select country "India +91"
+    And I enter phone number "9876543210"
+    And I select preferred language "English"
+    And I click next button
+    Then I should be on the farm profile screen
+
+Scenario: Complete farm profile with address details
+    Given I am on the farm profile screen
+    When I enter Business Name "Green Pastures Farm"
+    And I enter Address line one "123 Farm Street"
+    And I enter Address line two "Suite 100"
+    And I enter Town "Green Town"
+    And I select the Country "India"
+    And I select Region "Asia"
+    And I click next button
+    Then I should be on the farm details screen
+
+  Scenario: Complete farm details
+    Given I am on the farm details screen
+    When I click country code change
+    And I search for "India"
+    And I select country "India +91"
+    And I enter phone number "9876543210"
+    And I set farm location
+    And I confirm location
+    And I select animal species "Cattle"
+    And I enter number of cattle "10"
+    And I select production focus "Dairy"
+    And I select housing "Indoor"
+    And I click next button
+    Then I should be on the view farm profile screen
+
+  Scenario: Submit farm profile
+    Given I am on the view farm profile screen
+    When I verify the farm details
+    And I click Submit Button
+    Then I should see a success message "User updated Successfully"
+
+ # Negative Scenarios for Farm Profile
+  Scenario: Missing Business Name
+    Given I am on the farm profile screen
+    When I enter Address line one "123 Farm Street"
+    And I enter Address line two "Suite 100"
+    And I enter Town "Green Town"
+    And I select Country "India"
+    And I select Region "Asia"
+    And I click next button
+    Then I should see an error message "Business Name is required"
+
+  Scenario: Invalid Phone Number Format
+    Given I am on the farm details screen
+    When I click country code change
+    And I search for "India"
+    And I select country "India +91"
+    And I enter the phone number "abcd1234"
+    And I click next button
+    Then I should see an error message "Invalid phone number format"
+
+  Scenario: Missing Location Confirmation
+    Given I am on the farm details screen
+    When I set farm location
+    And I select animal species "Cattle"
+    And I enter number of cattle "10"
+    And I select production focus "Dairy"
+    And I select housing "Indoor"
+    And I click the next button
+    Then I should see an error message "Please confirm the location"
+
+  Scenario: Invalid Number of Cattle
+    Given I am on the farm details screen
+    When I enter phone number "9876543210"
+    And I set farm location
+    And I confirm location
+    And I select animal species "Cattle"
+    And I enter number of cattle "-5"
+    And I select production focus "Dairy"
+    And I click next button
+    Then I should see an error message "Number of cattle must be a positive integer"
+
+  Scenario: Submit with Incomplete Profile
+    Given I am on the view farm profile screen
+    When I click Submit Button
+    Then I should see an error message "Farm profile is incomplete"
+
+    
