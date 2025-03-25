@@ -1,0 +1,41 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 14.95 seconds
+--------------------------------------------------
+
+Scenario: Reset Password Process
+    Given I am on the Menu Page [passed]
+    When I should see the Reset Password Button [passed]
+    Then I click on Reset Password button [passed]
+    Then I am redirected to the Reset Password Page [passed]
+    When I should see the two input fields "Old Password" and "New Password" [passed]
+    Then I click on the "Old Password Field" and then I entered Old Password : "Vraj@123" [passed]
+    Then I click on the "New Password Field" and then I entered New Password : "Vraj@123" [passed]
+    When I should see the Submit Button [passed]
+    Then I click on that Submit Button [passed]
+    Then I am on the Dashboard [passed]
+    Then I should see the menu option and click menu [passed]
+Status: passed
+Execution Time: 41.55 seconds
+--------------------------------------------------
+
+Scenario: Reset Password with wrong old password
+    Given I am on the menu Page [passed]
+    When I should see the Reset Password Button [passed]
+    Then I click on Reset Password button [passed]
+    Then I am redirected to the Reset Password Page [passed]
+    When I should see the two input fields "Old Password" and "New Password" [passed]
+    Then I click on the "Old Password Field" and then I entered wrong Old Password : "Test@123" [passed]
+    Then I click on the "New Password Field" and then I entered New Password : "Vraj@123" [passed]
+    When I should see the Submit Button [passed]
+    Then I click on that Submit Button [passed]
+Status: passed
+Execution Time: 34.15 seconds
+--------------------------------------------------
+

@@ -22,7 +22,7 @@ Scenario: Apply a filter to products
 Status: passed
 Execution Time: 41.55 seconds
 --------------------------------------------------
-
+    
 Scenario: Removing all filters
     Given I am on the "Marketplace Feeds" activity [passed]
     When I should see the "Filter" button [passed]

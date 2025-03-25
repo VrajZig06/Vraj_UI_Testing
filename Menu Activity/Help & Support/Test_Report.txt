@@ -1,0 +1,41 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 17.74 seconds
+--------------------------------------------------
+
+Scenario: Navigate from menu activity to Help & Support Activity
+    Given I am on the Menu Page [passed]
+    When I should see "Help & Support" button [passed]
+    Then I click "Help & Support" button [passed]
+Status: passed
+Execution Time: 11.83 seconds
+--------------------------------------------------
+
+Scenario: Filling out Help & Support Form
+    Given I am on "Help & Support" Page [passed]
+    When I should see "Select Category" Field [passed]
+    Then I click "Select Category" options and Select "Technical Issue" [passed]
+    When I should see "Query" Field [passed]
+    Then I click and enter Query details "I have some Login Issues" [passed]
+    When I should see "Details" Field [passed]
+    Then I click and enter details "When I enter correct Login credentials then i click on Login but it didn't get login to myAccount instend of it show Loader" [passed]
+    When I should see "Submit" Field [passed]
+    Then I click "Submit" button [passed]
+    Then I redirected to "Dashboard" Page [failed]
+Status: failed
+Execution Time: 37.29 seconds
+Error: Message: An element could not be located on the page using the given search parameters.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+NoSuchElementError: An element could not be located on the page using the given search parameters.
+    at AndroidUiautomator2Driver.findElOrEls (/Users/ztlab141/.appium/node_modules/appium-uiautomator2-driver/node_modules/appium-android-driver/lib/commands/find.ts:86:11)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at AndroidUiautomator2Driver.findElOrElsWithProcessing (/Users/ztlab141/.nvm/versions/node/v20.1.0/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:60:12)
+    at AndroidUiautomator2Driver.findElement (/Users/ztlab141/.nvm/versions/node/v20.1.0/lib/node_modules/appium/node_modules/@appium/base-driver/lib/basedriver/commands/find.ts:75:12)
+--------------------------------------------------
+

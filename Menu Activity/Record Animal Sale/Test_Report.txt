@@ -1,0 +1,8 @@
+=== Cucumber Test Report ===
+
+Scenario: Filling all Details for Sale Animal
+    When I click button [passed]
+Status: passed
+Execution Time: 9.82 seconds
+--------------------------------------------------
+

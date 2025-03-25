@@ -1,0 +1,55 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 16.24 seconds
+--------------------------------------------------
+
+Scenario: Verify Menu Options and Clickability
+    Given I am on the Menu page [passed]
+    Then I should see and verify that all options are clickable the following options: [passed]
+Status: passed
+Execution Time: 10.99 seconds
+--------------------------------------------------
+
+Scenario: Check for the presence of the Notification button
+    Given I am on the Menu page [passed]
+    When I should see the Notification button [passed]
+Status: passed
+Execution Time: 8.79 seconds
+--------------------------------------------------
+
+Scenario: Access and Update My Profile
+    Given I am on the Menu Page [passed]
+    When I see the My Profile button [passed]
+    Then I click on the My Profile button [passed]
+    When I am on the My Profile page [passed]
+    Then I should see my name displayed on the Profile page [passed]
+Status: passed
+Execution Time: 15.56 seconds
+--------------------------------------------------
+
+Scenario: Edit Profile Details
+    Given I am on the My Profile page [passed]
+    When I see the "Complete Profile Now" button [passed]
+    Then I click on the "Complete My Profile" button [passed]
+    And I am redirected to the Edit My Profile Page [passed]
+Status: passed
+Execution Time: 14.75 seconds
+--------------------------------------------------
+
+Scenario: Update Full Name
+    Given I am on the Edit My Profile page [passed]
+    When I see the Full Name field and change name to Vraj [passed]
+    Then I click Save Button [passed]
+    And I should see the Personal Details section [passed]
+    And I should see the Farm Details and Farm Contact Numbers sections [passed]
+    And I should see the Delete Account and Manage Subscriptions buttons [passed]
+Status: passed
+Execution Time: 44.71 seconds
+--------------------------------------------------
+
