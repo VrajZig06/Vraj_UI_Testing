@@ -1,0 +1,20 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 15.03 seconds
+--------------------------------------------------
+
+Scenario: Navigate from menu activity to Animal Groups Activity
+    Given I am on the Menu Page [passed]
+    When I should see "Animal Groups" button [passed]
+    Then I click "Animal Groups" button [passed]
+    Then I am on Dashboard Page [passed]
+Status: passed
+Execution Time: 13.86 seconds
+--------------------------------------------------
+

@@ -1,0 +1,95 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 14.99 seconds
+--------------------------------------------------
+
+Scenario: Navigate from menu activity to Add Animal Record Activity
+    Given I am on the Menu Page [passed]
+    When I should see "Add New Animal" option [passed]
+    Then I click on "Add Animal Record" option [passed]
+Status: passed
+Execution Time: 13.17 seconds
+--------------------------------------------------
+
+Scenario: Add Animal Record - Phase 1
+    Given I am on the Add Animal Record Page [passed]
+    When I should see Purchase Information [passed]
+    Then I should see two Dropdown box "Add Animal Species" and "Add Animal Source" [passed]
+    Then I click on "Add Animal Species" and select "Cattle" as Species [passed]
+    Then I click on "Add Animal Source" and select "Purchased" as Animal Source [passed]
+    Then I click on "Next" button [passed]
+Status: passed
+Execution Time: 29.96 seconds
+--------------------------------------------------
+
+Scenario: Add Animal Record - Phase 2
+    Given I am on Purchase Information Page [passed]
+    When I should see Following Fields [passed]
+    Then I click "Seller Name" Field and enter seller name "Virat" [passed]
+    Then I click "Price Paid" Field and enter price paid value "2000" [passed]
+    Then I click "Combined Weight" and enter weight "200" [passed]
+    Then I click "Number of Animals" and enter animal count as "1" [passed]
+    Then I click "Production Focus" and select "Dairy" [passed]
+    Then I click "select date of Purchase" and click on "Ok" button [passed]
+    Then I click on "Next" button [passed]
+Status: passed
+Execution Time: 54.13 seconds
+--------------------------------------------------
+
+Scenario: Add Animal Record - Phase 3
+    Given I am on "Animal Information" Page [passed]
+    When I should see "Add Animal Photo" Field [passed]
+    Then I click on "Add Animal Photo" and select "Camera" option [passed]
+    Then I click on "Shutter" button and then I click on "Correct" option [passed]
+    When I should see "Tag Number" Field [passed]
+    Then I click "Tag Number" Field and Enter Tag Number "TestCow1" [passed]
+    When I should see "Breed" Field [passed]
+    Then I click on "Breed" and select "Angus" [passed]
+    When I should see "Name" Field [passed]
+    Then I click on "Name" and enter "Cowhsa" [passed]
+    When I should see "Age" Field [passed]
+    Then I click on "Age" and enter "10" [passed]
+    When I should see "Sex" Field [passed]
+    Then I click "Sex" and select "Female" [passed]
+    When I should see "Birth Weight" Field [passed]
+    Then I click "Birth Weight" and enter "200" [passed]
+    When I should see "Breeding Stage" Field [passed]
+    Then I click "Breeding Stage" and select "First breeding" [passed]
+    When I should see "Dam", "Sire" and "Documents" Fields [passed]
+    Then I click "date of birth" and click "Ok" [passed]
+    Then I click on "Next" button [passed]
+Status: passed
+Execution Time: 107.74 seconds
+--------------------------------------------------
+
+Scenario: Add Animal Record - Phase 4
+    Given I am on "Animal Added" Page [passed]
+    Then I click on "Next" button [passed]
+Status: passed
+Execution Time: 11.03 seconds
+--------------------------------------------------
+
+Scenario: Add Animal Record - Phase 5
+    Given I am on "Allocate to a Group" page [passed]
+    When I should see "CheckBox with my Animal" [passed]
+    Then I check that CheckBox [failed]
+    Then I click on "Next" button [failed]
+Status: failed
+Execution Time: 14.82 seconds
+--------------------------------------------------
+
+Scenario: Add Animal Record - Phase 6
+    Given I am on "Add to Group" Page [passed]
+    When I should see Two options "Recommended Group" and "Create a new Group" [passed]
+    Then I click "Recommended Group" and select group "New data" [passed]
+    Then I click "Submit button" [passed]
+Status: passed
+Execution Time: 17.96 seconds
+--------------------------------------------------
+

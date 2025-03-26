@@ -1,0 +1,22 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 17.19 seconds
+--------------------------------------------------
+
+Scenario: Navigate from menu activity to logout process
+    Given I am on the Menu Page [passed]
+    When I should see "Logout" button [passed]
+    Then I click "Logout" button [passed]
+    When I should see Logout Popup [passed]
+    Then I click on "Logout" button [passed]
+    Then I should see "Welcome to Greenerherd" Popup [passed]
+Status: passed
+Execution Time: 25.36 seconds
+--------------------------------------------------
+

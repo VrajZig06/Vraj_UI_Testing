@@ -1,0 +1,54 @@
+=== Cucumber Test Report ===
+
+Scenario: Access and interact with the Menu options
+    Given I am on the Farm Dashboard page [passed]
+    When I see the Menu button [passed]
+    Then I click on the Menu button [passed]
+    And I am redirected to the Menu page [passed]
+Status: passed
+Execution Time: 15.52 seconds
+--------------------------------------------------
+
+Scenario: Navigate from menu activity to My Feed Inventory Activity
+    Given I am on the Menu Page [passed]
+    When I should see "My Feed Inventory" button [passed]
+    Then I click "My Feed Inventory" button [passed]
+Status: passed
+Execution Time: 11.44 seconds
+--------------------------------------------------
+
+Scenario: My Feed Inventory Page
+    Given I am on "My Feed Inventory" Page [passed]
+    When I should see "Alfalfa" Feed in my List [passed]
+    Then I should see "Add New Product" button [passed]
+    Then I should see "Update" Button [passed]
+Status: passed
+Execution Time: 13.81 seconds
+--------------------------------------------------
+
+Scenario: Update Existing Feed
+    Given I am on "My Feed Inventory" Page [passed]
+    When I should see "Update" Button of any Particular Object [passed]
+    Then I click "Update" Button [passed]
+    And I see Update Popup is Open [passed]
+    Then I click on "Weight" field and Enter Update value "300" [passed]
+    Then I click on "Purchase Cost" and Enter Update value "30" [passed]
+    Then I click "Update Inventory" button [passed]
+Status: passed
+Execution Time: 25.94 seconds
+--------------------------------------------------
+
+Scenario: Add New Product to My Inventory
+    Given I am on "My Feed Inventory" Page [passed]
+    When I click "Add New Product" button [passed]
+    Then I should see "Add New Product" Popup [passed]
+    Then I click "Product Type" and Select "Fodder" [passed]
+    Then I click "Find Product" and Select "Alfalfa" [passed]
+    Then I click "Supplier" and Select "Aidco" [passed]
+    Then I click "Weight" and Enter Weight as "200" [passed]
+    Then I click "Purchase Cost" and Enter Cost as "2000" [passed]
+    Then I click "Add to Feed" button [passed]
+Status: passed
+Execution Time: 36.89 seconds
+--------------------------------------------------
+
