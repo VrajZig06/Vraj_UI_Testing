@@ -39,9 +39,6 @@ Scenario: Verify Manage Subscription Page Features
     Then I verify that "Limited Offer" is displayed
     When I see all available subscription plans listed below
     When I verify that the "Select Plan and Subscribe" button is visible
-    Then I click on "Pay ₹820.00" button
+    Then I click on "Pay ₹4,600.00" button
     Then I should see PopUp Box
-
-
-
 

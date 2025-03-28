@@ -6,7 +6,7 @@ Scenario: Launch the App and Navigate to User Registartion using Phone
     And I see the Welcome popup [passed]
     When I Click on Continue with Email [passed]
 Status: passed
-Execution Time: 19.59 seconds
+Execution Time: 17.72 seconds
 --------------------------------------------------
 
 Scenario: Login to App using email
@@ -16,7 +16,7 @@ Scenario: Login to App using email
     Then I click on Login Button [passed]
     Then I am at dashboard Page [passed]
 Status: passed
-Execution Time: 42.88 seconds
+Execution Time: 47.96 seconds
 --------------------------------------------------
 
 Scenario: Navigate from Dashboard to Menu Page
@@ -25,7 +25,7 @@ Scenario: Navigate from Dashboard to Menu Page
     Then I click on the "Menu" button [passed]
     Then I should be redirected to the Menu Page [passed]
 Status: passed
-Execution Time: 16.01 seconds
+Execution Time: 14.83 seconds
 --------------------------------------------------
 
 Scenario: Navigate from Menu Page to Profile Page
@@ -34,7 +34,7 @@ Scenario: Navigate from Menu Page to Profile Page
     Then I click on the "My Profile" button [passed]
     Then I should be redirected to the My Profile Page [passed]
 Status: passed
-Execution Time: 13.10 seconds
+Execution Time: 13.51 seconds
 --------------------------------------------------
 
 Scenario: Process from My Profile Page to Subscription Page
@@ -45,7 +45,7 @@ Scenario: Process from My Profile Page to Subscription Page
     Then I click on the "Manage Subscription" button [passed]
     Then I should be redirected to the Manage Subscription Page [passed]
 Status: passed
-Execution Time: 23.07 seconds
+Execution Time: 24.05 seconds
 --------------------------------------------------
 
 Scenario: Verify Manage Subscription Page Features
@@ -54,9 +54,9 @@ Scenario: Verify Manage Subscription Page Features
     Then I verify that "Limited Offer" is displayed [passed]
     When I see all available subscription plans listed below [passed]
     When I verify that the "Select Plan and Subscribe" button is visible [passed]
-    Then I click on "Pay ₹820.00" button [passed]
+    Then I click on "Pay ₹4,600.00" button [passed]
     Then I should see PopUp Box [passed]
 Status: passed
-Execution Time: 52.46 seconds
+Execution Time: 51.82 seconds
 --------------------------------------------------
 

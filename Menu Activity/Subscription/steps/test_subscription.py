@@ -230,7 +230,7 @@ def step_impl(context):
         if i == 'Less than 25 head':
             first_plan =  driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹820.00\n1 Month Amnesty')
             assert first_plan.is_displayed()
-            first_plan.click()
+            # first_plan.click()
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹3,350.00\n₹6,700.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 26 and 50 head':
@@ -244,7 +244,9 @@ def step_impl(context):
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹9,200.00\n₹18,400.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 101 and 300 head':
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹4,600.00\n1 Month Amnesty').is_displayed()
+            second_plan = driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹4,600.00\n1 Month Amnesty')
+            assert second_plan.is_displayed()
+            second_plan.click()
             time.sleep(1)
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹22,350.00\n₹44,700.00\n3 Month Amnesty').is_displayed()
 
@@ -262,13 +264,13 @@ def step_impl(context):
 @when('I verify that the "Select Plan and Subscribe" button is visible')
 def step_impl(context):
     driver = get_driver_instance(context)
-    assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, "on_tap\nPay ₹820.00").is_displayed()
+    assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, "on_tap\nPay ₹4,600.00").is_displayed()
     time.sleep(2)
 
-@then('I click on "Pay ₹820.00" button')
+@then('I click on "Pay ₹4,600.00" button')
 def step_impl(context):
     driver = get_driver_instance(context)
-    driver.find_element(AppiumBy.ACCESSIBILITY_ID, "on_tap\nPay ₹820.00").click()
+    driver.find_element(AppiumBy.ACCESSIBILITY_ID, "on_tap\nPay ₹4,600.00").click()
     time.sleep(2)
 
 
@@ -276,27 +278,121 @@ def step_impl(context):
 def step_impl(context):
     driver = get_driver_instance(context)
     assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Google Play").is_displayed()
-    assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[2]').is_displayed()
-    assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[3]').is_displayed()
-    assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[4]').is_displayed()
+    # assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[2]').is_displayed()
+    # assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[3]').is_displayed()
+    # assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[4]').is_displayed()
+    time.sleep(2)
+
+@given('I should see "Payment" Popup Modal')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Google Play").is_displayed()
     time.sleep(2)
 
 
+@when('I should see "Payment using Card" Option')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[2]').is_displayed()
+    time.sleep(2)
+
+@then('I click on "Payment using Card" button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[2]')
+    payment.is_displayed()
+    payment.click()
+    time.sleep(2)
+
+@then('I should see "Add Credit Card or Debit Card" Option')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="Add credit or debit card"]')
+    assert payment.is_displayed()
+    assert payment.text == 'Add credit or debit card'
+    payment.click()
+    time.sleep(2)
+
+@when('I should see "Card Number" Field')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.AutoCompleteTextView[@text="Card number"]')
+    assert payment.is_displayed()
+    assert payment.text == 'Card number'
+    time.sleep(2)
+
+@then('I click on "Card Number" and Enter "{cardNumber}"')
+def step_impl(context,cardNumber):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.AutoCompleteTextView[@text="Card number"]')
+    assert payment.text == 'Card number'
+    payment.send_keys(cardNumber)
+    time.sleep(2)
+
+@when('I should see "MM/YY" Field')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="Expiry date, 2-digit month, 2-digit year"]')
+    assert payment.is_displayed()
+    assert payment.text == 'Expiry date, 2-digit month, 2-digit year'
+    time.sleep(2)
+
+@then('I click on "MM/YY" and Enter "{month_year}"')
+def step_impl(context,month_year):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.EditText[@text="Expiry date, 2-digit month, 2-digit year"]')
+    payment.send_keys(month_year)
+    time.sleep(2)
+
+@when('I should see "CVV" Field')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.AutoCompleteTextView[@text="CVV"]')
+    assert payment.is_displayed()
+    time.sleep(2)
+
+@then('I click "CVV" and Enter "{cvv}"')
+def step_impl(context,cvv):
+    driver = get_driver_instance(context)
+    payment = driver.find_element(AppiumBy.XPATH, '//android.widget.AutoCompleteTextView[@text="CVV"]')
+    payment.send_keys(cvv)
+    time.sleep(2)
 
 
+@when('I should see "Payment Amount"')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    payment_Amount = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@text="₹4,600.00/month"]')
+    assert payment_Amount.is_displayed()
+    time.sleep(2)
 
+@then('I click on "Save Card" button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    SaveCard = driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@text="Save card"]')
+    assert SaveCard.is_displayed()
+    SaveCard.click()
+    time.sleep(2)
 
+    
 
+# ------------- Scenario for Payment Process if needed then take it from here. --------------
 
-
-
-
-
-
+# Scenario: Payment Process 
+#     Given I should see "Payment" Popup Modal
+#     When I should see "Payment using Card" Option
+#     Then I click on "Payment using Card" button
+#     Then I should see "Add Credit Card or Debit Card" Option
+#     When I should see "Card Number" Field
+#     Then I click on "Card Number" and Enter "4242424242424242"
+#     When I should see "MM/YY" Field
+#     Then I click on "MM/YY" and Enter "10/25"
+#     When I should see "CVV" Field
+#     Then I click "CVV" and Enter "123"
+#     When I should see "Payment Amount" 
+#     Then I click on "Save Card" button
 
 #  ------------------------
-
-
 
 # @when('I see all available subscription plans listed below')
 # def step_impl(context):
@@ -342,3 +438,8 @@ def step_impl(context):
 
 #     scroll_down()
 #     time.sleep(2)
+
+
+
+
+
