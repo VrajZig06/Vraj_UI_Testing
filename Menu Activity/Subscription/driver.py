@@ -6,9 +6,9 @@ def get_driver():
     
     options.load_capabilities({
         "appium:platformName": "Android",
-        "platformVersion": "14.0",
+        "platformVersion": "11.0",
         # "deviceName": "emulator-5554",
-        "deviceName": "AQJBJZDYCASWVOC6",
+        "deviceName": "U85PEMHILZS8VSPV",
         #"appPackage": "com.greenerherd.android",
         "appActivity": ".MainActivity",
         #"appWaitActivity": "com.greenerherd.greener_herd.*",  # Match any activity

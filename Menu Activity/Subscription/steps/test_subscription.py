@@ -23,7 +23,7 @@ def step_impl(context):
     driver = get_driver_instance(context)
     element = driver.find_element(AppiumBy.XPATH, '//android.widget.TextView[@content-desc="Greener Herd"]')
     element.click()
-    time.sleep(1)
+    time.sleep(5)
 
 @then('I see the splash screen')
 def step_impl(context):
@@ -143,7 +143,7 @@ def step_impl(context):
 @given('I am on the My Profile Page')
 def step_impl(context):
     driver = get_driver_instance(context)
-    assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, "Drashit, ").is_displayed()
+    assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, "My Profile").is_displayed()
     time.sleep(2)
     def scroll_down():
         driver.execute_script("mobile: scrollGesture", {
@@ -206,6 +206,60 @@ def step_impl(context):
     time.sleep(2)
 
 @when('I see all available subscription plans listed below')
+# def step_impl(context):
+#     driver = get_driver_instance(context)
+
+
+#     def scroll_down():
+#         driver.execute_script("mobile: scrollGesture", {
+#             "left": 100, "top": 100, "width": 200, "height": 800,
+#             "direction": "down",
+#             "percent": 1.0
+#         })
+
+#     subscription_plan = [
+#         'Less than 25 head',
+#         'Between 26 and 50 head',
+#         'Between 51 and 100 head',
+#         'Between 101 and 300 head',
+#         'Between 301 and 1000 head'
+#     ]
+   
+#     for i in subscription_plan:
+#         assert driver.find_element(AppiumBy.ACCESSIBILITY_ID, i).is_displayed()
+#         if i == 'Less than 25 head':
+#             first_plan =  driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹820.00\n1 Month Amnesty')
+#             assert first_plan.is_displayed()
+#             # first_plan.click()
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹3,350.00\n₹6,700.00\n3 Month Amnesty').is_displayed()
+
+#         elif i == 'Between 26 and 50 head':
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹1,400.00\n1 Month Amnesty').is_displayed()
+#             time.sleep(1)
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹5,600.00\n₹11,200.00\n3 Month Amnesty').is_displayed()
+
+#         elif i == 'Between 51 and 100 head':
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹2,100.00\n1 Month Amnesty').is_displayed()
+#             time.sleep(1)
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹9,200.00\n₹18,400.00\n3 Month Amnesty').is_displayed()
+
+#         elif i == 'Between 101 and 300 head':
+#             second_plan = driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹4,600.00\n1 Month Amnesty')
+#             assert second_plan.is_displayed()
+#             second_plan.click()
+#             time.sleep(1)
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹22,350.00\n₹44,700.00\n3 Month Amnesty').is_displayed()
+
+#         elif i == 'Between 301 and 1000 head':
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹10,300.00\n1 Month Amnesty').is_displayed()
+#             time.sleep(1)
+#             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹42,000.00\n₹84,000.00\n3 Month Amnesty').is_displayed()
+
+#         time.sleep(2)
+#         scroll_down()   
+        
+        
+#     time.sleep(2)
 def step_impl(context):
     driver = get_driver_instance(context)
 
@@ -231,29 +285,29 @@ def step_impl(context):
             first_plan =  driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹820.00\n1 Month Amnesty')
             assert first_plan.is_displayed()
             # first_plan.click()
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹3,350.00\n₹6,700.00\n3 Month Amnesty').is_displayed()
+            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹6,700.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 26 and 50 head':
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹1,400.00\n1 Month Amnesty').is_displayed()
             time.sleep(1)
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹5,600.00\n₹11,200.00\n3 Month Amnesty').is_displayed()
+            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹11,200.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 51 and 100 head':
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹2,100.00\n1 Month Amnesty').is_displayed()
             time.sleep(1)
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹9,200.00\n₹18,400.00\n3 Month Amnesty').is_displayed()
+            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹18,400.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 101 and 300 head':
             second_plan = driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹4,600.00\n1 Month Amnesty')
             assert second_plan.is_displayed()
             second_plan.click()
             time.sleep(1)
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹22,350.00\n₹44,700.00\n3 Month Amnesty').is_displayed()
+            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹44,700.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 301 and 1000 head':
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹10,300.00\n1 Month Amnesty').is_displayed()
             time.sleep(1)
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹42,000.00\n₹84,000.00\n3 Month Amnesty').is_displayed()
+            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹84,000.00\n3 Month Amnesty').is_displayed()
 
         time.sleep(2)
         scroll_down()   
@@ -281,6 +335,30 @@ def step_impl(context):
     # assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[2]').is_displayed()
     # assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[3]').is_displayed()
     # assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[4]').is_displayed()
+    time.sleep(2)
+
+# (//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[4]/android.widget.LinearLayout -- Subscripton Done
+# (//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[4]/android.widget.ImageView[2]
+
+
+@when('I should see "Subscribe" button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    assert driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.vending:id/0_resource_name_obfuscated"]').is_displayed()
+    time.sleep(2)
+
+
+@then('I click on "Subscribe" button')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.vending:id/0_resource_name_obfuscated"]').click()
+    time.sleep(2)
+
+@then('I should see "Subscribed Successfull" Message')
+def step_impl(context):
+    driver = get_driver_instance(context)
+    assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[4]/android.widget.LinearLayout').is_displayed()
+    assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[4]/android.widget.ImageView[2]').is_displayed()
     time.sleep(2)
 
 @given('I should see "Payment" Popup Modal')
@@ -441,5 +519,16 @@ def step_impl(context):
 
 
 
+
+
+
+# Scenario: Verify Manage Subscription Page Features
+#     Given I am on the Manage Subscription Page
+#     When I see the "Features Description" at the top of the screen
+#     Then I verify that "Limited Offer" is displayed
+#     When I see all available subscription plans listed below
+#     When I verify that the "Select Plan and Subscribe" button is visible
+#     Then I click on "Pay ₹4,600.00" button
+#     Then I should see PopUp Box
 
 

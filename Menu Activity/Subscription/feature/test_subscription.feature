@@ -33,12 +33,14 @@ Scenario: Process from My Profile Page to Subscription Page
     Then I click on the "Manage Subscription" button
     Then I should be redirected to the Manage Subscription Page
 
-Scenario: Verify Manage Subscription Page Features
+Scenario: Verify Manage Subscription Page Features -- Update Version
     Given I am on the Manage Subscription Page
     When I see the "Features Description" at the top of the screen
-    Then I verify that "Limited Offer" is displayed
     When I see all available subscription plans listed below
     When I verify that the "Select Plan and Subscribe" button is visible
     Then I click on "Pay ₹4,600.00" button
     Then I should see PopUp Box
-
+    When I should see "Subscribe" button
+    Then I click on "Subscribe" button
+    And I should see "Subscribed Successfull" Message
+    
