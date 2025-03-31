@@ -288,7 +288,9 @@ def step_impl(context):
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹6,700.00\n3 Month Amnesty').is_displayed()
 
         elif i == 'Between 26 and 50 head':
-            assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹1,400.00\n1 Month Amnesty').is_displayed()
+            plan =  driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Monthly\n₹1,400.00\n1 Month Amnesty')
+            assert plan.is_displayed()
+            # plan.click()
             time.sleep(1)
             assert driver.find_element(AppiumBy.ACCESSIBILITY_ID,'Annual\n₹11,200.00\n3 Month Amnesty').is_displayed()
 
@@ -325,7 +327,7 @@ def step_impl(context):
 def step_impl(context):
     driver = get_driver_instance(context)
     driver.find_element(AppiumBy.ACCESSIBILITY_ID, "on_tap\nPay ₹4,600.00").click()
-    time.sleep(2)
+    time.sleep(5)
 
 
 @then('I should see PopUp Box')
@@ -335,7 +337,7 @@ def step_impl(context):
     # assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[2]').is_displayed()
     # assert driver.find_element(AppiumBy.XPATH, '(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[3]').is_displayed()
     # assert driver.find_element(AppiumBy.XPATH,'(//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[7]/android.widget.LinearLayout[4]').is_displayed()
-    time.sleep(2)
+    time.sleep(5)
 
 # (//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[4]/android.widget.LinearLayout -- Subscripton Done
 # (//android.widget.LinearLayout[@resource-id="com.android.vending:id/0_resource_name_obfuscated"])[4]/android.widget.ImageView[2]
@@ -345,14 +347,14 @@ def step_impl(context):
 def step_impl(context):
     driver = get_driver_instance(context)
     assert driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.vending:id/0_resource_name_obfuscated"]').is_displayed()
-    time.sleep(2)
+    time.sleep(5)
 
 
 @then('I click on "Subscribe" button')
 def step_impl(context):
     driver = get_driver_instance(context)
     driver.find_element(AppiumBy.XPATH, '//android.widget.Button[@resource-id="com.android.vending:id/0_resource_name_obfuscated"]').click()
-    time.sleep(2)
+    time.sleep(3)
 
 @then('I should see "Subscribed Successfull" Message')
 def step_impl(context):
@@ -532,3 +534,38 @@ def step_impl(context):
 #     Then I should see PopUp Box
 
 
+
+
+
+# Scenario: Launch the App and Navigate to User Registartion using Phone
+#     Given I click on Greener Herd app
+#     Then I see the splash screen
+#     And I see the Welcome popup
+#     When I Click on Continue with Email  
+
+# Scenario: Login to App using email
+#     Given I am at Login Activity
+#     When I Click on Email Field and I Enter my Email drashti@yopmail.com
+#     Then I click on password Field and I Enter my password Test@1234
+#     Then I click on Login Button 
+#     Then I am at dashboard Page
+  
+# Scenario: Navigate from Dashboard to Menu Page
+#     Given I am on the Dashboard Page
+#     When I see the "Menu" button
+#     Then I click on the "Menu" button
+#     Then I should be redirected to the Menu Page      
+
+# Scenario: Navigate from Menu Page to Profile Page
+#     Given I am on the Menu Page
+#     When I see the "My Profile" option
+#     Then I click on the "My Profile" button
+#     Then I should be redirected to the My Profile Page
+
+# Scenario: Process from My Profile Page to Subscription Page
+#     Given I am on the My Profile Page
+#     When I see the "Subscription Plan" details at the bottom of the Profile Page
+#     Then I verify the subscription plan is "Trial Plan"
+#     When I see the "Manage Subscription" button
+#     Then I click on the "Manage Subscription" button
+#     Then I should be redirected to the Manage Subscription Page

@@ -1,3 +1,5 @@
+Successfully Executed
+
 === Cucumber Test Report ===
 
 Scenario: Launch the App and Navigate to User Registartion using Phone
@@ -47,3 +49,18 @@ Scenario: Process from My Profile Page to Subscription Page
 Status: passed
 Execution Time: 23.54 seconds
 --------------------------------------------------
+
+Scenario: Verify Manage Subscription Page Features -- Update Version
+    Given I am on the Manage Subscription Page [passed]
+    When I see the "Features Description" at the top of the screen [passed]
+    When I see all available subscription plans listed below [passed]
+    When I verify that the "Select Plan and Subscribe" button is visible [passed]
+    Then I click on "Pay ₹4,600.00" button [passed]
+    Then I should see PopUp Box [passed]
+    When I should see "Subscribe" button [passed]
+    Then I click on "Subscribe" button [passed]
+    And I should see "Subscribed Successfull" Message [passed]
+Status: passed
+Execution Time: 63.09 seconds
+--------------------------------------------------
+
